@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Positions</title>
+</head>
+<body>
+<h3>Adding position</h3>
+<form method="post" action="/position/add">
+    <label>Code of position</label>
+    <input type="number" min="1"/><br>
+    <label>Name of position</label>
+    <input type="text"/><br>
+    <label>Salary for this position</label>
+    <input type="number" min="30000.00"/>
+</form>
+<hr>
+<h3>Searching position</h3>
+<form method="get" action="/position/">
+    <label>Choose by which parameter do you want to search</label><br>
+    <select name="get" id="select" required>
+        <option value="id">By Id</option>
+        <option value="code">By Code</option>
+        <option value="name">By Name</option>
+    </select>
+    <input type="submit" value="submit"/>
+</form>
+<hr>
+<h3>Updating position</h3>
+<form method="post" action="/position/add">
+    <label>Code of position</label>
+    <input type="number" min="1"><br>
+    <label>Name of position</label>
+    <input type="text"><br>
+    <label>Salary for this position</label>
+    <input type="number" min="30000.00">
+</form>
+<hr>
+<h3>Deleting position</h3>
+<form method="post" action="/position/add">
+    <label>Code of position</label>
+    <input type="number" min="1"><br>
+    <label>Name of position</label>
+    <input type="text"><br>
+    <label>Salary for this position</label>
+    <input type="number" min="30000.00">
+</form>
+<hr>
+</body>
+</html>
