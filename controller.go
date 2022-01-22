@@ -8,9 +8,9 @@ import (
 
 func main() {
 	router := mux.NewRouter()
-	router.HandleFunc("/restaurants", restaurantHandler)
-	router.HandleFunc("/employees", employeeHandler)
-	router.HandleFunc("/positions", positionHandler)
+	router.HandleFunc("/restaurants.html", restaurantHandler)
+	router.HandleFunc("/employees.html", employeeHandler)
+	router.HandleFunc("/positions.html", positionHandler)
 	router.HandleFunc("/", mainMenuHandler)
 	http.Handle("/", router)
 

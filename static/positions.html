@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Positions</title>
+    <script src="../scripts/main.js"></script>
 </head>
 <body>
 <h3>Adding position</h3>
@@ -16,14 +17,15 @@
 </form>
 <hr>
 <h3>Searching position</h3>
-<form method="get" action="/position/">
+<form method="get" id="searchPositionForm">
     <label>Choose by which parameter do you want to search</label><br>
-    <select name="get" id="select" required>
+    <select id="select" required>
         <option value="id">By Id</option>
         <option value="code">By Code</option>
         <option value="name">By Name</option>
     </select>
-    <input type="submit" value="submit"/>
+    <input/>
+    <input type="submit" value="Search"/>
 </form>
 <hr>
 <h3>Updating position</h3>
