@@ -1,8 +1,8 @@
-package main
+package models
 
 import "time"
 
-type restaurant struct {
+type Restaurant struct {
 	id          int64
 	name        string
 	address     string
@@ -10,7 +10,7 @@ type restaurant struct {
 	monthProfit float32
 }
 
-type employee struct {
+type Employee struct {
 	id             int64
 	name           string
 	surname        string
@@ -20,11 +20,11 @@ type employee struct {
 	passport       string
 	employmentDate time.Time
 	phone          string
-	position
-	restaurant
+	Position
+	Restaurant
 }
 
-type position struct {
+type Position struct {
 	id     int64
 	code   uint8
 	name   string
