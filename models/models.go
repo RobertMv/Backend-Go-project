@@ -3,30 +3,30 @@ package models
 import "time"
 
 type Restaurant struct {
-	id          int64
-	name        string
-	address     string
-	yearProfit  float32
-	monthProfit float32
+	Id          int64
+	Name        string
+	Address     string
+	YearProfit  float32
+	MonthProfit float32
 }
 
 type Employee struct {
-	id             int64
-	name           string
-	surname        string
-	patronymic     string
-	birthDate      time.Time
-	sex            rune
-	passport       string
-	employmentDate time.Time
-	phone          string
+	Id             int64
+	Name           string
+	Surname        string
+	Patronymic     string
+	BirthDate      time.Time
+	Sex            rune
+	Passport       string
+	EmploymentDate time.Time
+	Phone          string
 	Position
 	Restaurant
 }
 
 type Position struct {
-	id     int64
-	code   uint8
-	name   string
-	salary float32
+	Id     int64
+	Code   uint8
+	Name   string
+	Salary float32
 }

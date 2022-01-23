@@ -1,7 +1,6 @@
 package main
 
 import (
-	"awesomeProject/services"
 	"fmt"
 	"github.com/gorilla/mux"
 	"log"
@@ -10,7 +9,7 @@ import (
 
 func main() {
 	log.Println("Starting the HTTP server on port 18")
-	services.CreateConnection()
+	//services.createConnection()
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/position/create", createPosition).Methods("POST")
 	log.Fatal(http.ListenAndServe(":18", router))
