@@ -1,6 +1,6 @@
 const template = (searchParameter) => `/position/get/${searchParameter}`;
 
-document.getElementById('searchPositionForm').addEventListener('submit', function(s) {
+document.getElementById('searchPositionForm').addEventListener('submit', function (s) {
     s.preventDefault();
     template(this.elements["searchParameter"].value);
     this.submit();

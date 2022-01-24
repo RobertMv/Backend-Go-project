@@ -7,17 +7,17 @@
 </head>
 <body>
 <h3>Adding position</h3>
-<form method="post" action="/position/add">
+<form action="/position/add" method="post">
     <label>Code of position</label>
-    <input type="number" min="1"/><br>
+    <input min="1" type="number"/><br>
     <label>Name of position</label>
     <input type="text"/><br>
     <label>Salary for this position</label>
-    <input type="number" min="30000.00"/>
+    <input min="30000.00" type="number"/>
 </form>
 <hr>
 <h3>Searching position</h3>
-<form method="get" id="searchPositionForm">
+<form id="searchPositionForm" method="get">
     <label>Choose by which parameter do you want to search</label><br>
     <select id="select" required>
         <option value="id">By Id</option>
@@ -29,23 +29,23 @@
 </form>
 <hr>
 <h3>Updating position</h3>
-<form method="post" action="/position/add">
+<form action="/position/add" method="post">
     <label>Code of position</label>
-    <input type="number" min="1"><br>
+    <input min="1" type="number"><br>
     <label>Name of position</label>
     <input type="text"><br>
     <label>Salary for this position</label>
-    <input type="number" min="30000.00">
+    <input min="30000.00" type="number">
 </form>
 <hr>
 <h3>Deleting position</h3>
-<form method="post" action="/position/add">
+<form action="/position/add" method="post">
     <label>Code of position</label>
-    <input type="number" min="1"><br>
+    <input min="1" type="number"><br>
     <label>Name of position</label>
     <input type="text"><br>
     <label>Salary for this position</label>
-    <input type="number" min="30000.00">
+    <input min="30000.00" type="number">
 </form>
 <hr>
 </body>

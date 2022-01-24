@@ -86,6 +86,17 @@ func GetPosition(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func GetAllPositions(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Context-Type", "application/x-www-form-encoded")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+
+	positions, err := getAllPositions()
+	if err != nil {
+		log.Fatalf("Unable to get all positions. %v", err)
+	}
+	json.NewEncoder(w).Encode(positions)
+}
+
 func UpdatePosition(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/x-www-form-urlencoded")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
@@ -152,14 +163,37 @@ func getUser(id int64) (models.Position, error) {
 	return position, err
 }
 
+func getAllPositions() ([]models.Position, error) {
+	db := createConnection()
+	defer db.Close()
+
+	var positions []models.Position
+	sqlStatement := "SELECT * FROM positions"
+	rows, err := db.Query(sqlStatement)
+	if err != nil {
+		log.Fatalf("Unable to execute the query. %v", err)
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		var position models.Position
+		err = rows.Scan(&position.Id, &position.Code, &position.Name, &position.Salary)
+		if err != nil {
+			log.Fatalf("Unabel to scan the row. %v", err)
+		}
+		positions = append(positions, position)
+	}
+	return positions, err
+}
+
 func insertPosition(position models.Position) int64 {
 	db := createConnection()
 	defer db.Close()
 
-	sqlStatement := "INSERT INTO positions (code, name, salary) VALUES ($1, $2, $3)"
+	sqlStatement := "INSERT INTO positions (code, name, salary) VALUES ($1, $2, $3) RETURNING id"
 	var id int64
 
-	err := db.QueryRow(sqlStatement, position.Code, position.Name, position.Salary)
+	err := db.QueryRow(sqlStatement, position.Code, position.Name, position.Salary).Scan(&id)
 	if err != nil {
 		log.Fatalf("Unable to execute the query. %v", err)
 	}
